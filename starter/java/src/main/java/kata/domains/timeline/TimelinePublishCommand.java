@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kata.domains.timeline;
 
 import kata.User;
@@ -23,8 +18,8 @@ public class TimelinePublishCommand {
 		this.user = user;
 		this.message = message;
 		this.callback = cb;
-		
 	}
+
 	public TimelineMessage exec() {
 		if (!this.validate()) {
 			return null;
@@ -36,7 +31,7 @@ public class TimelinePublishCommand {
 		tm.save();
 		return tm;
 	}
-	
+
 	public boolean validate() {
 		if (this.user == null) {
 			this.callback.onValidationFailure(user, "User cannot be null");
